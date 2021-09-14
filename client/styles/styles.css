@@ -7,9 +7,12 @@
    }
 
 /* -------------------------- pirate animation ---------------------- */
-
-@keyframes moveTo2 { to { left: 970px; top: 60px; } }
+@keyframes moveTo1 { to { left: 256px; top: 419px; } }
+@keyframes moveTo2 { to { left: 970px; top: 60px; } } 
+@keyframes moveTo3 { to { left: 1853px; top: 418px; } }
 @keyframes moveTo4 { to { left: 896px; top: 415px; } }
+@keyframes moveTo5 { to { left: 207px; top: 1033px; } }
+@keyframes moveTo6 { to { left: 1741px; top: 1094px; } }
 
 
 .pirateAnim {

@@ -14,7 +14,6 @@ app.use(routerGame);
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, './client')));
 app.get('*', (req, res) => {
-  // res.sendFile(path.resolve(__dirname, '../index.html'));
   res.sendFile(path.resolve(__dirname, './client', './index.html'));
 });
 
