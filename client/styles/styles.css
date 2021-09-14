@@ -1,0 +1,19 @@
+/* -------------------------- dice animation ---------------------- */
+@keyframes spin { 100% { transform:rotate(360deg); } }
+
+.animation {
+    animation: spin 2s ease;
+    transition: 2s
+   }
+
+/* -------------------------- pirate animation ---------------------- */
+
+@keyframes moveTo2 { to { left: 970px; top: 60px; } }
+@keyframes moveTo4 { to { left: 896px; top: 415px; } }
+
+
+.pirateAnim {
+    animation: moveTo2 2s forwards;
+    transition: 2s
+   }
+
