@@ -20,12 +20,14 @@ routerGame.get('/api/dice', async (req, res) => {
 })
 
 routerGame.post('/api/cell', async (req, res) => {
+    let isGameOver;
     try {
         const cell = req.body.cell;
         let message = '';
         switch(cell) {
             case(1): {
                 message = "You stayed at the same place. Game Over";
+                isGameOver = 1;
                 await new Activity()
                 .withProperties({'IP': ip.address()})
                 .use('cell 1')
@@ -35,7 +37,9 @@ routerGame.post('/api/cell', async (req, res) => {
             case(2): {
                 const isPoison = Math.round(Math.random());
                 isPoison === 0 ? message = "Ahh... Good rum! You win" : message = "The rum was poisoned... Game Over"
-                
+                // isGameOver = isPoison ? 1 : 0;
+                isGameOver = 1;
+
                 let log = isPoison ? 'Player was poisoned... Game Over' : 'Played drinked...'
                 await new Activity()
                 .withProperties({'IP': ip.address()})
@@ -45,6 +49,7 @@ routerGame.post('/api/cell', async (req, res) => {
             }
             case(3): {
                 message = "The dragon ate you... Game Over";
+                isGameOver = 1;
                 await new Activity()
                 .withProperties({'IP': ip.address()})
                 .use('cell 3')
@@ -53,6 +58,7 @@ routerGame.post('/api/cell', async (req, res) => {
             }
             case(4): {
                 message = "You found treasures! You win!";
+                isGameOver = 0;
                 await new Activity()
                 .withProperties({'IP': ip.address()})
                 .use('cell 4')
@@ -63,6 +69,7 @@ routerGame.post('/api/cell', async (req, res) => {
                 const num = Math.round(Math.random()*3)+1;
                 const response = await Messages.findOne({num})
                 message = response.message;
+                isGameOver = 0;
 
                 await new Activity()
                 .withProperties({'IP': ip.address()})
@@ -72,6 +79,7 @@ routerGame.post('/api/cell', async (req, res) => {
             }
             case(6): {
                 message = "You came to the island!!! You win!";
+                isGameOver = 0;
                 await new Activity()
                     .withProperties({'IP': ip.address()})
                     .use('cell 6')
@@ -79,7 +87,7 @@ routerGame.post('/api/cell', async (req, res) => {
                 break;
             }
         }
-        res.json({message});
+        res.json({message, isGameOver});
     } catch (error) {
         console.log(error);
     }

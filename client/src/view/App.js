@@ -1,5 +1,4 @@
-import '../styles/stylesFromPSD.css';
-import '../styles/styles.css';
+import React, { useState } from 'react';
 
 import Menu from './Menu';
 import Pirate from './Pirate';
@@ -14,12 +13,16 @@ import Cell5 from './Cell5.bottle';
 import Cell6 from './Cell6.island';
 
 function App() {
+  const [number, setNumber] = useState(null);
+  const [isGameOver, setIsGameOver] = useState(null);
+  // console.log('isOver', isGameOver);
+
   return (
     <div className="App">
       <header className="App-header">
         <Map></Map>
-        {/* <Menu></Menu> */}
-        <Pirate></Pirate>
+        <Menu setNumber={setNumber}></Menu>
+        <Pirate number={number} setNumber={setNumber} isGameOver={isGameOver} setIsGameOver={setIsGameOver}></Pirate>
 
         <Cell1></Cell1>
         <Cell2></Cell2>

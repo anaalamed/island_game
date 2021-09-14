@@ -17,7 +17,9 @@ connect(process.env.MONGODB_URI ||  "mongodb+srv://islandGame:qVcGqw3u4HU9pFWi@c
 
 // serve UI 
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, '../client')));
+// app.use(express.static(path.join(__dirname, '../client')));
+
+app.use(express.static(path.resolve(__dirname, './client/build')));
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
