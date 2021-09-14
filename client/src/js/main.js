@@ -34,3 +34,23 @@ $("#Rolldice").click( async function() {
     }, 1000);
 })
 
+const move = (num) => {
+    for (let i=1; i<=num; i++) {
+        setTimeout( () => {
+            console.log('step', i)
+            moveStep(i);
+        }, 2000*i);
+    } 
+}
+
+const moveStep = (num) => {
+    console.log('num', num)
+    $('#Pirate').addClass(`pirateAnim${num}`);
+
+    setTimeout(() => {
+    // $('#Pirate').removeClass(`pirateAnim${num}`)
+    }, 2000);
+
+}
+
+move(6);

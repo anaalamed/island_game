@@ -15,8 +15,28 @@
 @keyframes moveTo6 { to { left: 1741px; top: 1094px; } }
 
 
-.pirateAnim {
-    animation: moveTo2 2s forwards;
+.pirateAnim2 {
+    animation: moveTo2 2s backwards;
+    transition: 2s
+   }
+
+.pirateAnim3 {
+    animation: moveTo3 2s forwards;
+    transition: 2s
+   }
+
+.pirateAnim4 {
+    animation: moveTo4 2s forwards;
+    transition: 2s
+   }
+
+.pirateAnim5 {
+    animation: moveTo5 2s forwards;
+    transition: 2s
+   }
+
+.pirateAnim6 {
+    animation: moveTo6 2s forwards;
     transition: 2s
    }
 

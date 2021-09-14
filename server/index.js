@@ -7,7 +7,6 @@ import {connect} from './game-db.js'
 import routerGame from './routes/game.js';
 // import Game from './models/game.js';
 
-
 const app = express();
 app.use(cors());
 app.use(bodyParser.json()); 
@@ -18,9 +17,9 @@ connect(process.env.MONGODB_URI ||  "mongodb+srv://islandGame:qVcGqw3u4HU9pFWi@c
 
 // serve UI 
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, './client')));
+app.use(express.static(path.join(__dirname, '../client')));
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './client', './index.html'));
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 
