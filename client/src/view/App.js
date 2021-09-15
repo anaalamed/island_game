@@ -9,10 +9,10 @@ function App() {
     <div className="App">
       <header className="App-header">
 
-        <Game></Game>
+        {/* <Game></Game> */}
 
       </header>
-        {/* <Start></Start> */}
+        <Start></Start>
     </div>
   );
 }
