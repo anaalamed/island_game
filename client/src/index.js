@@ -6,6 +6,7 @@ import './styles/stylesFromPSD.css';
 import './styles/styles.css';
 import './styles/animations.css';
 import './styles/responsive.css';
+import './styles/animations.css';
 
 
 ReactDOM.render(

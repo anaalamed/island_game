@@ -2,23 +2,21 @@ import React from 'react';
 import $ from 'jquery';
 
 const Pirate = ({ number, setNumber, setStatus }) => {
-    // console.log('pirate', number);
-    // console.log('isOver', isGameOver);
 
     function pirateMove(num) {
         console.log("pirate move", num);
+        let lastNum;
         for (let i = 1; i <= num; i++) {
             setTimeout(() => {
                 moveStep(i);
-            }, 4000 * i);
+            }, 2000 * i);
+            lastNum = i;
         }
+        setTimeout(() => asyncMoveStep(lastNum), 2000 * lastNum);
     }
 
     const moveStep = (num) => {
-        // console.log('in step', isGameOver);
-        // console.log('step', num);
         $('#Pirate').addClass(`pirateAnim${num}`);
-        asyncMoveStep(num);
         setTimeout(() => {
             $('#Pirate').removeClass(`pirateAnim${num}`);
         }, 5000);
@@ -46,8 +44,7 @@ const Pirate = ({ number, setNumber, setStatus }) => {
     }
 
     if (number) {
-        // moveStep(number);
-        pirateMove(1);
+        pirateMove(number);
         setNumber(null); // prevent infinite 
     }
 

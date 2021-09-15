@@ -7,7 +7,7 @@
       transform: rotate(360deg);
     }
   }
- 
+
 .animation {
     animation: spin 1s ease;
    }
@@ -63,5 +63,4 @@
 .pirateAnim6 {
     animation: moveTo6 2s forwards;
     transition: 2s
-   }
-
+}
