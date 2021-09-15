@@ -31,7 +31,7 @@ function App() {
         <Cell5></Cell5>
         <Cell6></Cell6>
 
-        {/* <Messages></Messages> */}
+        {/* <Messages isGameOver={isGameOver}></Messages> */}
         {/* <Other></Other> */}
 
       </header>

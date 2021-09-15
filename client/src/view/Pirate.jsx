@@ -9,7 +9,7 @@ const Pirate = ({ number, setNumber, isGameOver, setIsGameOver }) => {
     function pirateMove(num) {
 
         console.log("pirate move", num);
-        for (let i = 2; i <= num; i++) {
+        for (let i = 1; i <= num; i++) {
             if (isGameOver !== 1) {
                 setTimeout(() => {
                     moveStep(i);
@@ -30,7 +30,9 @@ const Pirate = ({ number, setNumber, isGameOver, setIsGameOver }) => {
     const asyncMoveStep = async (num) => {
         console.log('async', num);
         try {
-            const response = await fetch('http://localhost:7000/api/cell', {
+            // const response = await fetch('http://localhost:7000/api/cell', {
+            const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/cell', {
+
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -47,7 +49,7 @@ const Pirate = ({ number, setNumber, isGameOver, setIsGameOver }) => {
 
     if (number) {
         // pirateMove(number);
-        pirateMove(3);
+        pirateMove(6);
         setNumber(null);
     }
 

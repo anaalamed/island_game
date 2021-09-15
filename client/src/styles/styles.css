@@ -1,22 +1,47 @@
 /* -------------------------- dice animation ---------------------- */
-@keyframes spin { 100% { transform:rotate(360deg); } }
-
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+ 
 .animation {
-    animation: spin 2s ease;
-    transition: 2s
+    animation: spin 1s ease;
    }
 
 /* -------------------------- pirate animation ---------------------- */
-@keyframes moveTo1 { to { left: 256px; top: 419px; } }
+/* @keyframes moveTo1 { to { left: 256px; top: 419px; } } */
 @keyframes moveTo2 { to { left: 970px; top: 60px; } } 
-@keyframes moveTo3 { to { left: 1870px; top: 370px; } }
-@keyframes moveTo4 { to { left: 1050px; top: 650px; } }
-@keyframes moveTo5 { to { left: 100px; top: 800px; } }
-@keyframes moveTo6 { to { left: 2000px; top: 900px; } }
+@keyframes moveTo3 { 
+    from {left: 970px; top: 60px;}
+    to { left: 1870px; top: 370px; } 
+}
 
+@keyframes moveTo4 { 
+    from {left: 1870px; top: 370px; }
+    to { left: 1050px; top: 650px; } 
+}
+
+@keyframes moveTo5 { 
+    from {left: 1050px; top: 650px;}
+    to { left: 100px; top: 800px; } 
+}
+@keyframes moveTo6 { 
+    from {left: 100px; top: 800px;}
+    to { left: 2000px; top: 900px; } 
+}
+
+
+.pirateAnim1 {
+    animation: spin 2s forwards;
+    transition: 2s
+   }
 
 .pirateAnim2 {
-    animation: moveTo2 2s backwards;
+    animation: moveTo2 2s forwards;
     transition: 2s
    }
 
