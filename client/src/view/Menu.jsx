@@ -14,7 +14,9 @@ const Menu = ({ setNumber }) => {
 
     const rollDice = async () => {
         // disable for a few second ???
-        // $("#Rolldice").attr('disabled', true);
+        $("#Rolldice").removeClass(disabledbutton);
+
+        // https://stackoverflow.com/questions/62533598/how-to-get-session-cookies-from-express-session-in-react
 
 
         const res = await fetch("https://anaalamed-island-game.herokuapp.com/api/dice");
