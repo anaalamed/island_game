@@ -31,7 +31,7 @@ routerGame.post('/api/cell', async (req, res) => {
         let message = '';
         switch(cell) {
             case(1): {
-                message = "You stayed at the same place. Game Over";
+                message = "You stayed at the same place...";
                 isGameOver = 1;
                 await new Activity()
                 .withProperties({'IP': ip.address()})
@@ -41,7 +41,7 @@ routerGame.post('/api/cell', async (req, res) => {
             }
             case(2): {
                 const isPoison = Math.round(Math.random());
-                isPoison === 0 ? message = "Ahh... Good rum! You win" : message = "The rum was poisoned... Game Over"
+                isPoison === 0 ? message = "Ahh... Good rum! " : message = "The rum was poisoned..."
                 // isGameOver = isPoison ? 1 : 0;
                 isGameOver = 1;
                 
@@ -53,7 +53,7 @@ routerGame.post('/api/cell', async (req, res) => {
                 break;
             }
             case(3): {
-                message = "The dragon ate you... Game Over";
+                message = "The dragon ate you...";
                 isGameOver = 1;
                 await new Activity()
                 .withProperties({'IP': ip.address()})
@@ -62,7 +62,7 @@ routerGame.post('/api/cell', async (req, res) => {
                 break;
             }
             case(4): {
-                message = "You found treasures! You win!";
+                message = "You found the treasures!";
                 isGameOver = 0;
                 await new Activity()
                 .withProperties({'IP': ip.address()})
@@ -83,7 +83,7 @@ routerGame.post('/api/cell', async (req, res) => {
                 break;
             }
             case(6): {
-                message = "You came to the island!!! You win!";
+                message = "You came to the island!!! ";
                 isGameOver = 0;
                 await new Activity()
                 .withProperties({'IP': ip.address()})
@@ -96,7 +96,8 @@ routerGame.post('/api/cell', async (req, res) => {
         res.json({message, isGameOver});
 
     } catch(error) {
-        res.status(500).json({error: "Could not move"});        
+        res.status(500).json({error: "Could not move"}); 
+        // activity log?       
     }
 })
 
