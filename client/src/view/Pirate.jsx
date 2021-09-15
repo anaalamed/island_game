@@ -47,7 +47,7 @@ const Pirate = ({ number, setNumber, setStatus }) => {
 
     if (number) {
         // moveStep(number);
-        pirateMove(number);
+        pirateMove(1);
         setNumber(null); // prevent infinite 
     }
 

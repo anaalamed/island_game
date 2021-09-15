@@ -13,6 +13,10 @@ const Menu = ({ setNumber }) => {
     }
 
     const rollDice = async () => {
+        // disable for a few second ???
+        // $("#Rolldice").attr('disabled', true);
+
+
         const res = await fetch("https://anaalamed-island-game.herokuapp.com/api/dice");
         // const res = await fetch("http://localhost:7000/api/dice");
 
@@ -57,7 +61,7 @@ const Menu = ({ setNumber }) => {
                 <div id="Layer8"><img src="images/Layer8.png" alt="" onClick={browseMap} /></div>
 
                 <div id="Shape25"><img src="images/Shape25.png" alt="" /></div>
-                <div id="Rolldice"><img src="images/Rolldice.png" alt="" onClick={rollDice} /></div>
+                <div id="Rolldice" onClick={rollDice}><img src="images/Rolldice.png" alt="" /></div>
 
                 <div id="Layer9"><img src="images/dice-3.png" alt="" /></div>
             </Box>
