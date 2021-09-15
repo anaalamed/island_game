@@ -38,11 +38,13 @@ function App() {
         <Cell6></Cell6>
 
         {(status)?  
-          (<Messages status={status}></Messages>)  : null
+          (<>
+            <Messages status={status}></Messages>
+            <Sound isGameOver={status.isGameOver}></Sound>
+          </>)  : null
         }
 
         {/* <Other></Other> */}
-        <Sound status={status}></Sound>
       </header>
     </div>
   );
