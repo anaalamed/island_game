@@ -26,10 +26,8 @@ routerPlayer.post('/api/users/player', async (req, res) => {
 
 routerPlayer.get('/api/users/me', async (req, res) => {
     try {
-        const email = req.body.email;
-
+        const email = req.headers.email;
         const player = await Player.findOne({email: email});
-        console.log(player);
 
         await new Activity()
         .withProperties({'IP': ip.address()})

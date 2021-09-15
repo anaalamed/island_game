@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import Game from './Game';
 import Start from './Start';
+import { Route } from "react-router-dom";
+import { Provider } from "react-redux";
 
 function App() {
 
 
   return (
     <div className="App">
-      <header className="App-header">
 
-        {/* <Game></Game> */}
+      <Route path="/" exact component={Start} />
+      <Route path="/game" exact component={Game} />
 
-      </header>
-        <Start></Start>
     </div>
   );
 }

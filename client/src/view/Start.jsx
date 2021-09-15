@@ -1,45 +1,25 @@
 import styled from "styled-components";
-import React from "react";
-import { useForm } from 'react-hook-form';
+import React, { useState } from "react";
+import Registration from './Registration';
+import Login from './Login';
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 const Start = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { me } = useSelector(state => state.me);
+    const [registration, setRegistration] = useState(false);
+    const [login, setLogin] = useState(false);
+    const [buttons, setButtons] = useState(true);
 
-    const onSubmit = (data) => {
-        // dispatch(login(data));
-        console.log(data);
+    const onClickReg = () => {
+        setRegistration(true);
+        setButtons(false);
     }
 
-    const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const error_messages = {
-        name: {
-            required: "Name is required",
-            minLength: "Name is too short"
-        },
-        email: {
-            required: "Email is required",
-            minLength: "Email is too short",
-            pattern: "Email address is not valid"
-        }
-    };
-
-    const get_error_msg = (errors, error_messages, field_name) => {
-        const generate = (name) => {
-            if (errors[name]) {
-                switch (errors[name].type) {
-                    case "required":
-                        return error_messages[name].required;
-                    case "minLength":
-                        return error_messages[name].minLength;
-                    case "pattern":
-                        return error_messages[name].pattern;
-                    default:
-                        return "";
-                }
-            }
-        };
-        return generate(field_name);
-    };
+    const onClickLog = () => {
+        setLogin(true)
+        setButtons(false);
+    }
 
     return (
         <Box>
@@ -47,28 +27,13 @@ const Start = () => {
 
             <Title>Welcome to the Island Game</Title>
 
-            <Form onSubmit={handleSubmit(onSubmit)} >
-                <Input
-                    name="name"
-                    placeholder="Name"
-                    {...register('name', { required: true, minLength: 2 })}
-                    error_styled={errors?.name}
-                ></Input>
-                <Error show={errors?.name}>
-                    {get_error_msg(errors, error_messages, "name")}
-                </Error>
+            <Buttons display={buttons}>
+                <Button onClick={onClickReg}>Registration</Button>
+                <Button onClick={onClickLog}>Log In</Button>
+            </Buttons>
 
-                <Input
-                    name="email"
-                    placeholder="Email"
-                    {...register('email', { required: true, minLength: 8, pattern: email_regex })}
-                    error_styled={errors?.email}
-                ></Input>
-                <Error show={errors.email}>
-                    {get_error_msg(errors, error_messages, "email")}
-                </Error>
-                <Button>Submit</Button>
-            </Form>
+            {registration ? (<Registration display={registration}></Registration>) : null}
+            {login ? (<Login display={registration}></Login>) : null}
         </Box>
     )
 }
@@ -92,48 +57,23 @@ const Title = styled.h1`
   font-family: cursive;
 `;
 
-const Form = styled.form`
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: midnightblue;
-  padding: 5rem 2.5rem;
-  box-shadow: 0.2rem 0.2rem 2rem rgba(184, 187, 200, 0.3);
-  border-top-right-radius: 10rem;
-  border-bottom-right-radius: 15rem;
-  border-top-left-radius: 15rem;
-  border-bottom-left-radius: 10rem;
-  opacity: 90%;
-`;
+const Buttons = styled.div`
+  z-index: 200;
+  display: ${props => (props.display ? "block" : "none")};
 
-const Input = styled.input`
-  z-index: 100;
-  font-size: 2.5rem;
-  margin: 1.5rem;
-  padding: 1rem 3rem;
-  background: ${({ error_styled }) => (error_styled ? "pink" : "white")};
 
-  border-top-right-radius: 10rem;
-  border-bottom-right-radius: 15rem;
-  border-top-left-radius: 15rem;
-  border-bottom-left-radius: 10rem;
-
-  &:focus {
-    outline: none;
- }
 `;
 
 const Button = styled.button`
   z-index: 100;
   font-size: 3rem;
-  width: 50%;
   margin: 1.5rem;
   cursor: pointer;
   font-family: cursive;
   color: midnightblue;
   font-weight: bold;
   background: #cde44a;
+  padding: 2rem;
 
   border-top-right-radius: 10rem;
   border-bottom-right-radius: 15rem;
@@ -141,14 +81,7 @@ const Button = styled.button`
   border-bottom-left-radius: 10rem;
 
   &:hover {
-    width: 60%;
     background: coral;
     transition: 2s;
   }
-`;
-
-const Error = styled.div`
-  color: red;
-  display: ${({ show }) => (show ? "block" : "none")};
-  font-size: 1rem;
 `;
