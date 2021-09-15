@@ -5,32 +5,33 @@ import { getPlayer } from '../state/slices/player.slice';
 import Profile from './Profile';
 
 const Login = () => {
-    const { me } = useSelector(state => state.me);
-    const dispatch = useDispatch();
-    const [email, setEmail] = useState('');
-    const [profile, setProfile] = useState(false);
-    console.log(email);
+  const { me } = useSelector(state => state.me);
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [profile, setProfile] = useState(false);
+  console.log(email);
 
-    const onClick = (e) => {
-        e.preventDefault();
-        dispatch(getPlayer(email));
-        setTimeout(() => setProfile(true), 1000); // not nice! need to change
-    }
+  const onClick = (e) => {
+    e.preventDefault();
+    dispatch(getPlayer(email));
+    setTimeout(() => setProfile(true), 1000); // not nice! need to change
+  }
 
-    return (
-        <>
-            <Form display={profile} >
-                <Input
-                    name="email"
-                    placeholder="Email"
-                    onChange={(e) => setEmail(e.target.value)}
-                ></Input>
+  return (
+    <>
+      <Form display={profile} >
+        <Input
+          name="email"
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
+        ></Input>
 
-                <Button onClick={onClick}>View Profile</Button>
-            </Form>
-            {profile ? (<Profile data={me}></Profile>) : null}
-        </>
-    )
+        <Button onClick={onClick}>View Profile</Button>
+        <p>test account: test@gmail.com</p>
+      </Form>
+      {profile ? (<Profile data={me}></Profile>) : null}
+    </>
+  )
 }
 
 export default Login;
@@ -57,7 +58,11 @@ const Form = styled.form`
   border-top-left-radius: 15rem;
   border-bottom-left-radius: 10rem;
   opacity: 90%;
-  display: ${props => (props.display ? "none" : "block")};
+  display: ${props => (props.display ? "none" : "flex")};
+
+  p {
+    color: #cde44a;
+  }
 `;
 
 const Input = styled.input`

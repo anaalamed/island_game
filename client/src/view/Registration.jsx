@@ -1,16 +1,20 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from 'react-hook-form';
 import { useDispatch } from "react-redux";
-import { addPlayer } from '../state/slices/player.slice'
+import { addPlayer } from '../state/slices/player.slice';
+import Login from "./Login";
 
 const Registration = ({ }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch();
+    const [login, setLogin] = useState(false);
+
 
     const onSubmit = (data) => {
         console.log(data);
         dispatch(addPlayer({ email: data.email, name: data.name }));
+        setLogin(true);
     }
 
     const email_regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -45,43 +49,39 @@ const Registration = ({ }) => {
     };
 
     return (
-        // <Box>
-        <Form onSubmit={handleSubmit(onSubmit)} >
-            <Input
-                name="name"
-                placeholder="Name"
-                {...register('name', { required: true, minLength: 2 })}
-                error_styled={errors?.name}
-            ></Input>
-            <Error show={errors?.name}>
-                {get_error_msg(errors, error_messages, "name")}
-            </Error>
+        <Box>
+            <Form display={login} onSubmit={handleSubmit(onSubmit)} >
+                <Input
+                    name="name"
+                    placeholder="Name"
+                    {...register('name', { required: true, minLength: 2 })}
+                    error_styled={errors?.name}
+                ></Input>
+                <Error show={errors?.name}>
+                    {get_error_msg(errors, error_messages, "name")}
+                </Error>
 
-            <Input
-                name="email"
-                placeholder="Email"
-                {...register('email', { required: true, minLength: 8, pattern: email_regex })}
-                error_styled={errors?.email}
-            ></Input>
-            <Error show={errors.email}>
-                {get_error_msg(errors, error_messages, "email")}
-            </Error>
-            <Button>Registration</Button>
-        </Form>
-        // </Box>
+                <Input
+                    name="email"
+                    placeholder="Email"
+                    {...register('email', { required: true, minLength: 8, pattern: email_regex })}
+                    error_styled={errors?.email}
+                ></Input>
+                <Error show={errors.email}>
+                    {get_error_msg(errors, error_messages, "email")}
+                </Error>
+                <Button>Registration</Button>
+            </Form>
+            {login ? (<Login></Login>) : null}
+
+        </Box>
     )
 }
 
 export default Registration;
 
 const Box = styled.div`
-  height: 100%;
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  z-index: 200;
 `;
 
 const Title = styled.h1`
@@ -104,6 +104,8 @@ const Form = styled.form`
   border-top-left-radius: 15rem;
   border-bottom-left-radius: 10rem;
   opacity: 90%;
+  display: ${props => (props.display ? "none" : "flex")};
+
 `;
 
 const Input = styled.input`

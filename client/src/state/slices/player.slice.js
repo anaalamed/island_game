@@ -4,7 +4,8 @@ export const getPlayer = createAsyncThunk(
 	'players/me',
 	async (payload) => {
     console.log(payload);
-		const response = await fetch('http://localhost:7000/api/users/me', {
+    const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/users/me', {
+		// const response = await fetch('http://localhost:7000/api/users/me', {
 			headers: {
 				'Content-Type': 'application/json',
         'email': payload
@@ -23,7 +24,8 @@ export const addPlayer = createAsyncThunk(
 	'players/addNew',
 	async (payload) => {
     console.log(payload);
-		const response = await fetch('http://localhost:7000/api/users/player', {
+    const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/users/player', {
+		// const response = await fetch('http://localhost:7000/api/users/player', {
       method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -33,7 +35,26 @@ export const addPlayer = createAsyncThunk(
     if (response.ok) {
       const player = await response.json();
       console.log(player);
-      // return {me};
+		}
+	}
+);
+
+export const updateStatus = createAsyncThunk(
+	'players/updateStatus',
+	async (payload) => {
+    console.log(payload);
+    const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/users/updateStatus', {
+		// const response = await fetch('http://localhost:7000/api/users/updateStatus', {
+      method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+        'email': payload.email
+			},
+      body: JSON.stringify({ isWin: payload.isWin }),
+		});
+    if (response.ok) {
+      const player = await response.json();
+      console.log(player);
 		}
 	}
 );

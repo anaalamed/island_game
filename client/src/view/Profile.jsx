@@ -4,21 +4,21 @@ import { Redirect } from "react-router-dom";
 
 
 const Profile = ({ data }) => {
-    const [redirect, setRedirect] = useState(false);
+  const [redirect, setRedirect] = useState(false);
 
-    return (
-        <>
-            <Box>
-                <Name>{data.name}</Name>
-                <Detail>Wins: {data.wins}</Detail>
-                <Detail>Losing: {data.losings}</Detail>
-                <Button onClick={() => setRedirect(true)}>Start Game</Button>
+  return (
+    <>
+      <Box>
+        <Name>{data.name}</Name>
+        <Detail>Wins: {data.wins}</Detail>
+        <Detail>Losings: {data.losings}</Detail>
+        <Button onClick={() => setRedirect(true)}>Start Game</Button>
 
-                {redirect ? (<Redirect to="/game" />) : null}
-            </Box>
+        {redirect ? (<Redirect to="/game" />) : null}
+      </Box>
 
-        </>
-    )
+    </>
+  )
 }
 
 export default Profile;

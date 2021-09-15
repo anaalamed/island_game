@@ -4,9 +4,10 @@ import styled from "styled-components";
 import { FaExpandAlt } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 
-const Menu = ({ setNumber }) => {
+const Menu = ({ setNumber, timeGame }) => {
     const [display, setDisplay] = useState(1);
     const [sign, setSign] = useState(AiOutlineClose);
+    console.log(timeGame);
 
     const browseMap = () => {
         console.log("browse");
@@ -15,7 +16,7 @@ const Menu = ({ setNumber }) => {
     const rollDice = async () => {
 
         $("#Rolldice").addClass("disabledbutton");
-        setTimeout(() => $("#Rolldice").removeClass("disabledbutton"), 5000);
+        setTimeout(() => $("#Rolldice").removeClass("disabledbutton"), timeGame);
 
         const res = await fetch("https://anaalamed-island-game.herokuapp.com/api/dice");
         // const res = await fetch("http://localhost:7000/api/dice");

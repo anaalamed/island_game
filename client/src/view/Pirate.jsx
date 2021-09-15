@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-const Pirate = ({ number, setNumber, setStatus }) => {
+const Pirate = ({ number, setNumber, setStatus, setTimeGame }) => {
 
     function pirateMove(num) {
         console.log("pirate move", num);
@@ -11,6 +11,7 @@ const Pirate = ({ number, setNumber, setStatus }) => {
                 moveStep(i);
             }, 2000 * i);
             lastNum = i;
+            setTimeGame(lastNum * 2000);
         }
         setTimeout(() => asyncMoveStep(lastNum), 2000 * lastNum);
     }
@@ -26,8 +27,8 @@ const Pirate = ({ number, setNumber, setStatus }) => {
         console.log('async', num);
         try {
             if (num === 1 || num === 2 || num === 3 || num === 4 || num === 5 || num === 6) {
-                // const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/cell', {
-                const response = await fetch('http://localhost:7000/api/cell', {
+                const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/cell', {
+                    // const response = await fetch('http://localhost:7000/api/cell', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

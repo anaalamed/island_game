@@ -41,4 +41,28 @@ routerPlayer.get('/api/users/me', async (req, res) => {
     }
 })
 
+routerPlayer.put('/api/users/updateStatus', async (req, res) => {
+    try {
+        const email = req.headers.email;
+        const {isWin} = req.body;
+        const player = await Player.findOne({email: email});
+         
+        if (isWin ) player.wins++
+        else player.losings++;
+        await player.save();
+
+        const status = isWin ? "win" : "lose";
+
+        await new Activity()
+        .withProperties({'IP': ip.address()})
+        .use('player status')
+        .log(`${player.name} ${status}`);
+
+        res.json(player);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error: "Could not find the player"}); 
+    }
+})
+
 export default routerPlayer;

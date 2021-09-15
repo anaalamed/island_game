@@ -12,23 +12,36 @@ import Cell4 from './Cell4.treasure';
 import Cell5 from './Cell5.bottle';
 import Cell6 from './Cell6.island';
 import Sound from './Sound';
+import { useDispatch, useSelector } from "react-redux";
+import { updateStatus } from '../state/slices/player.slice';
 
 
 function Game() {
-    const [number, setNumber] = useState(null);
+    const dispatch = useDispatch();
+    const { me } = useSelector(state => state.me);
+
+    const [numDice, setNumDice] = useState(null);
     const [status, setStatus] = useState(null);
-    // console.log(status);
+    const [timeGame, setTimeGame] = useState(0);
+    // console.log(timeGame);
+
     setTimeout(() => {
         setStatus(null);
     }, 1500);
+
+    if (status?.isGameOver) {
+        let isWin = !(status.isGameOver);
+        console.log("over");
+        dispatch(updateStatus({ isWin: isWin, email: me.email }));
+    }
 
     return (
         // <div className="App">
         // <header className="App-header">
         <>
             <Map></Map>
-            <Menu setNumber={setNumber}></Menu>
-            <Pirate number={number} setNumber={setNumber} setStatus={setStatus}></Pirate>
+            <Menu setNumber={setNumDice} timeGame={timeGame}></Menu>
+            <Pirate number={numDice} setNumber={setNumDice} setStatus={setStatus} setTimeGame={setTimeGame}></Pirate>
 
             <Cell1></Cell1>
             <Cell2></Cell2>
