@@ -11,6 +11,9 @@ import Cell3 from './Cell3.dragon';
 import Cell4 from './Cell4.treasure';
 import Cell5 from './Cell5.bottle';
 import Cell6 from './Cell6.island';
+import Sound from './Sound';
+
+
 
 function App() {
   const [number, setNumber] = useState(null);
@@ -39,6 +42,7 @@ function App() {
         }
 
         {/* <Other></Other> */}
+        <Sound status={status}></Sound>
       </header>
     </div>
   );

@@ -42,8 +42,7 @@ routerGame.post('/api/cell', async (req, res) => {
             case(2): {
                 const isPoison = Math.round(Math.random());
                 isPoison === 0 ? message = "Ahh... Good rum! " : message = "The rum was poisoned..."
-                // isGameOver = isPoison ? 1 : 0;
-                isGameOver = 1;
+                isGameOver = isPoison ? 1 : 0;
                 
                 let log = isPoison ? 'Player was poisoned... Game Over' : 'Played drinked...'
                 await new Activity()
