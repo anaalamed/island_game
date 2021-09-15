@@ -30,18 +30,20 @@ const Pirate = ({ number, setNumber, isGameOver, setIsGameOver }) => {
     const asyncMoveStep = async (num) => {
         console.log('async', num);
         try {
-            // const response = await fetch('http://localhost:7000/api/cell', {
-            const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/cell', {
+            if (num === 1 || num === 2 || num === 3 || num === 4 || num === 5 || num === 6) {
+                const response = await fetch('http://localhost:7000/api/cell', {
+                    // const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/cell', {
 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ cell: num })
-            });
-            const data = await response.json();
-            console.log(data);
-            setIsGameOver(data.isGameOver);
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ cell: num })
+                });
+                const data = await response.json();
+                console.log(data);
+                setIsGameOver(data.isGameOver);
+            }
         } catch (error) {
             console.log(error)
         }

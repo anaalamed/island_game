@@ -23,6 +23,11 @@ routerGame.post('/api/cell', async (req, res) => {
     let isGameOver;
     try {
         const cell = req.body.cell;
+
+        if (cell === undefined || cell <0 || cell >6 ) {
+            throw new Error(); 
+        }
+
         let message = '';
         switch(cell) {
             case(1): {
@@ -39,7 +44,7 @@ routerGame.post('/api/cell', async (req, res) => {
                 isPoison === 0 ? message = "Ahh... Good rum! You win" : message = "The rum was poisoned... Game Over"
                 // isGameOver = isPoison ? 1 : 0;
                 isGameOver = 1;
-
+                
                 let log = isPoison ? 'Player was poisoned... Game Over' : 'Played drinked...'
                 await new Activity()
                 .withProperties({'IP': ip.address()})
@@ -70,7 +75,7 @@ routerGame.post('/api/cell', async (req, res) => {
                 const response = await Messages.findOne({num})
                 message = response.message;
                 isGameOver = 0;
-
+                
                 await new Activity()
                 .withProperties({'IP': ip.address()})
                 .use('cell 5')
@@ -81,15 +86,17 @@ routerGame.post('/api/cell', async (req, res) => {
                 message = "You came to the island!!! You win!";
                 isGameOver = 0;
                 await new Activity()
-                    .withProperties({'IP': ip.address()})
-                    .use('cell 6')
-                    .log('Player came to the island. Win')
+                .withProperties({'IP': ip.address()})
+                .use('cell 6')
+                .log('Player came to the island. Win')
                 break;
             }
+            default: throw new Error();
         }
         res.json({message, isGameOver});
-    } catch (error) {
-        console.log(error);
+
+    } catch(error) {
+        res.status(500).json({error: "Could not move"});        
     }
 })
 
