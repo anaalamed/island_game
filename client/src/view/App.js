@@ -15,14 +15,19 @@ import Cell6 from './Cell6.island';
 function App() {
   const [number, setNumber] = useState(null);
   const [isGameOver, setIsGameOver] = useState(null);
-  // console.log('isOver', isGameOver);
+  const [status, setStatus] = useState(null);
+  // console.log(status);
 
   return (
     <div className="App">
       <header className="App-header">
         <Map></Map>
         <Menu setNumber={setNumber}></Menu>
-        <Pirate number={number} setNumber={setNumber} isGameOver={isGameOver} setIsGameOver={setIsGameOver}></Pirate>
+        <Pirate number={number} setNumber={setNumber} 
+        isGameOver={isGameOver} setIsGameOver={setIsGameOver}
+        setStatus={setStatus}
+
+        ></Pirate>
 
         <Cell1></Cell1>
         <Cell2></Cell2>
@@ -31,8 +36,8 @@ function App() {
         <Cell5></Cell5>
         <Cell6></Cell6>
 
-        {/* <Messages isGameOver={isGameOver}></Messages> */}
         {/* <Other></Other> */}
+        <Messages status={status}></Messages>
 
       </header>
     </div>
