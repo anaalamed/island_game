@@ -1,0 +1,19 @@
+@media only screen and (min-width: 768px) {
+    .boxMessages {
+        font-size: 2rem;
+        background: aqua;
+    }
+
+    #VectorSmartObject_1 
+    { 
+         width: 1000px;
+         height: 1000px;
+    } 
+
+    h1 {
+        font-size: 1rem;
+    }
+
+
+
+  } 

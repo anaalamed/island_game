@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Messages = ({ status }) => {
     console.log(status);
     const [visible, setVisible] = useState(false);
 
-
-    if (status) {
-        // setVisible(true);
-        // setTimeout(setVisible(false), 3000);
-    }
-
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setVisible(true);
+    //     }, 2000)
+    // })
 
     let gameStatus = status?.isGameOver ? 'Game Over...' : "You Win!"
 
@@ -23,7 +22,7 @@ const Messages = ({ status }) => {
         //     <div id="GreatYoulandedon4You"><img src="images/GreatYoulandedon4You.png" alt="" /></div>
         // </>
 
-        <Box
+        <Box className="boxMessages"
         // display={visible}
         >
             {(status && gameStatus) ? (
@@ -58,12 +57,14 @@ const Message = styled.h1`
     color: white;
     text-align: center;
     font-size: 5rem;
+    padding: 1rem;
 `;
 
 const Status = styled.h1`
     color: white;
     text-align: center;
     font-size: 7rem;
+    padding: 1rem;
 `;
 
 const Button = styled.button`

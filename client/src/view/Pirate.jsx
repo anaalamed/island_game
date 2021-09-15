@@ -1,39 +1,35 @@
 import React from 'react';
 import $ from 'jquery';
 
-const Pirate = ({ number, setNumber, isGameOver, setIsGameOver, setStatus }) => {
+const Pirate = ({ number, setNumber, setStatus }) => {
     // console.log('pirate', number);
     // console.log('isOver', isGameOver);
 
-
-
     function pirateMove(num) {
-
         console.log("pirate move", num);
         for (let i = 1; i <= num; i++) {
-            // if (isGameOver !== 1) {
             setTimeout(() => {
                 moveStep(i);
-            }, 2000 * i);
-            // }
+            }, 4000 * i);
         }
     }
 
     const moveStep = (num) => {
         // console.log('in step', isGameOver);
-        // setTimeout(() => {
         // console.log('step', num);
         $('#Pirate').addClass(`pirateAnim${num}`);
         asyncMoveStep(num);
-        // })
+        setTimeout(() => {
+            $('#Pirate').removeClass(`pirateAnim${num}`);
+        }, 5000);
     }
 
     const asyncMoveStep = async (num) => {
         console.log('async', num);
         try {
             if (num === 1 || num === 2 || num === 3 || num === 4 || num === 5 || num === 6) {
-                // const response = await fetch('http://localhost:7000/api/cell', {
-                const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/cell', {
+                // const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/cell', {
+                const response = await fetch('http://localhost:7000/api/cell', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -42,8 +38,7 @@ const Pirate = ({ number, setNumber, isGameOver, setIsGameOver, setStatus }) => 
                 });
                 const data = await response.json();
                 console.log(data);
-                // setIsGameOver(data.isGameOver);
-                setStatus(data);
+                setTimeout(() => setStatus(data), 2000)
             }
         } catch (error) {
             console.log(error)
@@ -51,9 +46,6 @@ const Pirate = ({ number, setNumber, isGameOver, setIsGameOver, setStatus }) => 
     }
 
     if (number) {
-        // pirateMove(number);
-        // setTimeout(moveStep(number), 1000);
-
         // moveStep(number);
         pirateMove(number);
         setNumber(null); // prevent infinite 
