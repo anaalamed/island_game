@@ -63,6 +63,11 @@ const Form = styled.form`
   p {
     color: #cde44a;
   }
+
+  @media only screen and (max-width: 812px) {
+    padding: 2rem 1rem;
+    width: 100%;
+  }
 `;
 
 const Input = styled.input`
@@ -79,6 +84,13 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
+ }
+
+ @media only screen and (max-width: 812px) {
+     font-size: 1rem;
+     margin: 0.3rem;
+     padding: 0.3rem 1.5rem;
+     width: 60%;
  }
 `;
 
@@ -103,6 +115,12 @@ const Button = styled.button`
     background: coral;
     transition: 2s;
   }
+
+  @media only screen and (max-width: 812px) {
+     font-size: 1rem;
+     margin: 0;
+     padding: 0.3rem 1.5rem;
+ }
 `;
 
 const Error = styled.div`

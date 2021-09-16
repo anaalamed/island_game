@@ -97,7 +97,7 @@ const Form = styled.form`
   flex-direction: column;
   align-items: center;
   background: midnightblue;
-  padding: 5rem 2.5rem;
+  padding: 4rem 2.5rem;
   box-shadow: 0.2rem 0.2rem 2rem rgba(184, 187, 200, 0.3);
   border-top-right-radius: 10rem;
   border-bottom-right-radius: 15rem;
@@ -105,6 +105,11 @@ const Form = styled.form`
   border-bottom-left-radius: 10rem;
   opacity: 90%;
   display: ${props => (props.display ? "none" : "flex")};
+
+  @media only screen and (max-width: 812px) {
+    padding: 2rem 1rem;
+    width: 100%;
+  }
 
 `;
 
@@ -123,6 +128,14 @@ const Input = styled.input`
   &:focus {
     outline: none;
  }
+
+    @media only screen and (max-width: 812px) {
+     font-size: 1rem;
+     margin: 0.3rem;
+     padding: 0.3rem 1.5rem;
+     width: 60%;
+ }
+
 `;
 
 const Button = styled.button`
@@ -146,6 +159,12 @@ const Button = styled.button`
     background: coral;
     transition: 2s;
   }
+
+    @media only screen and (max-width: 812px) {
+     font-size: 1rem;
+     margin: 0;
+     padding: 0.3rem 1.5rem;
+ }
 `;
 
 const Error = styled.div`

@@ -36,8 +36,6 @@ function Game() {
     }
 
     return (
-        // <div className="App">
-        // <header className="App-header">
         <>
             <Map></Map>
             <Menu setNumber={setNumDice} timeGame={timeGame}></Menu>
@@ -57,9 +55,7 @@ function Game() {
                 </>) : null
             }
 
-
             {/* <Other></Other> */}
-            {/* <Start></Start> */}
         </>
 
     );

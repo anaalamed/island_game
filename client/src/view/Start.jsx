@@ -6,48 +6,54 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 const Start = () => {
-    const { me } = useSelector(state => state.me);
-    const [registration, setRegistration] = useState(false);
-    const [login, setLogin] = useState(false);
-    const [buttons, setButtons] = useState(true);
+  const { me } = useSelector(state => state.me);
+  const [registration, setRegistration] = useState(false);
+  const [login, setLogin] = useState(false);
+  const [buttons, setButtons] = useState(true);
 
-    const onClickReg = () => {
-        setRegistration(true);
-        setButtons(false);
-    }
+  const onClickReg = () => {
+    setRegistration(true);
+    setButtons(false);
+  }
 
-    const onClickLog = () => {
-        setLogin(true)
-        setButtons(false);
-    }
+  const onClickLog = () => {
+    setLogin(true)
+    setButtons(false);
+  }
 
-    return (
-        <Box>
-            <div id="Layer1"><img src="images/Layer1.png" /></div>
+  return (
+    <Box>
+      {/* <div id="Layer1"><img src="images/Layer1.png" /></div> */}
 
-            <Title>Welcome to the Island Game</Title>
+      <Title>Welcome to the Island Game</Title>
 
-            <Buttons display={buttons}>
-                <Button onClick={onClickReg}>Registration</Button>
-                <Button onClick={onClickLog}>Log In</Button>
-            </Buttons>
+      <Buttons display={buttons}>
+        <Button onClick={onClickReg}>Registration</Button>
+        <Button onClick={onClickLog}>Log In</Button>
+      </Buttons>
 
-            {registration ? (<Registration display={registration}></Registration>) : null}
-            {login ? (<Login display={registration}></Login>) : null}
-        </Box>
-    )
+      {registration ? (<Registration display={registration}></Registration>) : null}
+      {login ? (<Login display={registration}></Login>) : null}
+    </Box>
+  )
 }
 
 export default Start;
 
 const Box = styled.div`
   height: 100%;
-  padding: 5rem 0;
+  padding: 3rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* z-index: 200; */
+  
+    @media only screen and (max-width: 812px) {
+    padding: 2rem;
+  }
+
 `;
 
 const Title = styled.h1`
@@ -55,13 +61,22 @@ const Title = styled.h1`
   font-size: 6rem;
   color: midnightblue;
   font-family: cursive;
+
+    @media only screen and (max-width: 812px) {
+    font-size: 2rem;
+  }
 `;
 
 const Buttons = styled.div`
   z-index: 200;
   display: ${props => (props.display ? "block" : "none")};
+  margin-top: 3.5rem;
 
-
+    @media only screen and (max-width: 1024px) {
+    font-size: 1rem;
+    padding: 1rem;
+    margin-top: 0;
+  }
 `;
 
 const Button = styled.button`
@@ -83,5 +98,10 @@ const Button = styled.button`
   &:hover {
     background: coral;
     transition: 2s;
+  }
+
+    @media only screen and (max-width: 812px) {
+    font-size: 1rem;
+    padding: 1rem;
   }
 `;

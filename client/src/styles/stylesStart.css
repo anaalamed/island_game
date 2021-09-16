@@ -1,0 +1,8 @@
+body {
+    background-image: url(../assets/images/Layer1.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center top;
+    color: midnightblue;
+}
