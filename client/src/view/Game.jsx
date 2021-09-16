@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import $ from 'jquery';
+import { useDispatch, useSelector } from "react-redux";
 
+import { updateStatus } from '../state/slices/player.slice';
 import Menu from './Menu';
 import Pirate from './Pirate';
 import Messages from './Messages';
@@ -13,8 +15,6 @@ import Cell4 from './Cell4.treasure';
 import Cell5 from './Cell5.bottle';
 import Cell6 from './Cell6.island';
 import Sound from './Sound';
-import { useDispatch, useSelector } from "react-redux";
-import { updateStatus } from '../state/slices/player.slice';
 
 function Game() {
     const dispatch = useDispatch();

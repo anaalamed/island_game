@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import Player from '../models/player.js';
-import ip from 'ip';
-import Activity from '../models/activity.js';
 import jwt from 'jsonwebtoken';
+import ip from 'ip';
+
+import Activity from '../models/activity.js';
+import Player from '../models/player.js';
 
 const routerPlayer = Router(); 
 

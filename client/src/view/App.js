@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Route } from "react-router-dom";
+
+import OrientationMessage from './OrientationMessage';
 import Game from './Game';
 import Start from './Start';
-import { Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import OrientationMessage from './OrientationMessage';
-
 
 function useScreenOrientation() {
   const [orientation, setOrientation] = useState(window.screen.orientation.type);
@@ -14,10 +13,8 @@ function useScreenOrientation() {
     window.addEventListener('orientationchange', handleOrientationChange);
     return () => window.removeEventListener('orientationchange', handleOrientationChange);
   }, []);
-
   return orientation;
 }
-
 
 function App() {
   const orientation = useScreenOrientation();

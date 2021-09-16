@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from "styled-components";
 import useSound from 'use-sound';
 
 const Demo = ({ isGameOver }) => {
@@ -21,11 +20,5 @@ const Demo = ({ isGameOver }) => {
 
 export default Demo;
 
-// const Button = styled.button`
-//     z-index: 200;
-//     left: 100px;
-//     top: 100px;
-//     position: absolute;
-// `;
 
 

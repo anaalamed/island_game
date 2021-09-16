@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import ip from 'ip';
+
 import Messages from '../models/funnyMessages.js';
 import Activity from '../models/activity.js';
-
 
 const routerGame = Router(); 
 

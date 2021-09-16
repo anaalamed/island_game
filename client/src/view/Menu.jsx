@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import $ from 'jquery';
 import styled from "styled-components";
+import $ from 'jquery';
 import { FaExpandAlt } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 
@@ -12,7 +12,7 @@ const Menu = ({ setNumber, timeGame }) => {
         console.log("browse");
     }
 
-    const time = (timeGame > 0) ? (timeGame + 2000) : 5000; // at the first render get 0
+    const time = (timeGame !== 0) ? (timeGame + 2000) : 8000; // at the first render get 0
 
     const rollDice = async () => {
         console.log(timeGame);
