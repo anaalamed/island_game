@@ -321,12 +321,11 @@
 
  #Layer9 
 { 
-	 /* left: 1586px;  */
-	 left: 1560px; 
+	 left: 1586px; 
 	 top: 726px; 
 	 position: absolute; 
-	 width: 218px;
-	 height: 218px;
+	 /* width: 218px; */
+	 /* height: 218px; */
 	 z-index:31;
 } 
 
