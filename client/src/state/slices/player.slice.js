@@ -69,7 +69,12 @@ const player_slice = createSlice({
     // --------------- other Async -----------------------
     [getPlayer.fulfilled]: (state, action) => {
       state.me = action.payload;
-    }
+    },
+    // [updateStatus.fulfilled]: (state, action) => {
+    //   console.log(action.payload);
+    //   state.me.wins = action.payload.wins;
+    //   state.me.losings = action.payload.losings;
+    // }
   }
 });
 
