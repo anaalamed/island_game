@@ -14,9 +14,8 @@ const Login = () => {
   const onClick = (e) => {
     e.preventDefault();
     const isEmail = isValidEmail(email);
-    console.log(isEmail);
+    if (!isEmail) setVisible(true);
     if (isEmail) {
-      setVisible(true);
       dispatch(getPlayer(email));
       setTimeout(() => setProfile(true), 1000); // not nice! need to change
     }
@@ -136,7 +135,7 @@ const Button = styled.button`
 
 const Error = styled.div`
   color: red;
-  display: ${props => (props.display ? "none" : "flex")};
+  display: ${props => (props.display ? "block" : "none")};
   font-size: 1rem;
   @media only screen and (max-width: 812px) {
      font-size: 0.6rem;
