@@ -1,16 +1,66 @@
-#Layer9 
-{ 
-	left: 1550px; 
-    top: 700px; 
-} 
-    
-#Layer9 img {
-    width: 300px;
-    height: 300px;
+.disabledbutton {
+  pointer-events: none;
+  opacity: 0.4;
 }
 
+.background-image {
+  background-image: url(../assets/images/Shape24.png);
+  background-repeat:repeat-y;
+  position: relative;
+}
 
+.background-image .browse-map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 440px;
+  width: 100%;
+}
 
+.background-image .browse-map-btn {
+  background-image: url(../assets/images/Shape26.png);
+  line-height: 123px;
+}
+
+.browse-map-btn img {
+  height: 66px;
+  margin-top: -2px !important;
+  margin-left: -3px !important;
+  width: 59px;
+}
+
+.background-image .roll-dice-background {
+  align-items: center;
+  background-image: url(../assets/images/Shape25.png);
+  display: flex;
+  left: 60px;
+  justify-content: center;
+  height: 101px;
+  position: absolute;
+  top: 424px;
+  width: 317px;
+}
+
+.roll-dice-background .roll-dice {
+  background-image: url(../assets/images/Rolldice.png) ;
+  cursor: pointer;
+  line-height: 47px;
+  height: 47px;
+  width: 225px;
+  z-index:27;
+}
+
+.background-image .dice {
+  margin: 0 auto;
+  margin-top: 560px;
+  width: 218px;
+  height: 218px;
+  z-index:31;
+}
+
+.dice img {
+  margin-left: -70px;
+}
 
 .disabledbutton {
     pointer-events: none;

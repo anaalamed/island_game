@@ -7,13 +7,13 @@ import { AiOutlineClose } from 'react-icons/ai';
 const Menu = ({ setNumber, timeGame }) => {
     const [display, setDisplay] = useState(1);
     const [sign, setSign] = useState(AiOutlineClose);
+    console.log(timeGame);
 
     const browseMap = () => {
         console.log("browse");
     }
 
     const rollDice = async () => {
-        console.log(timeGame);
 
         $("#Rolldice").addClass("disabledbutton");
         setTimeout(() => $("#Rolldice").removeClass("disabledbutton"), timeGame);
@@ -21,9 +21,7 @@ const Menu = ({ setNumber, timeGame }) => {
         const res = await fetch("https://anaalamed-island-game.herokuapp.com/api/dice");
         // const res = await fetch("http://localhost:7000/api/dice");
 
-        // const data = await res.json();
-        const data = { numberDice: 4 };
-
+        const data = await res.json();
 
         $("#Layer9").addClass("animation");
 
@@ -56,16 +54,21 @@ const Menu = ({ setNumber, timeGame }) => {
         <>
             <Button display={display} onClick={toogleDisplay}>{sign}</Button>
             <Box display={display}>
-                <div id="Shape24"><img src="images/Shape24.png" alt="" /></div>
+                <div id="Shape24" className="background-image">
+                  <div className="browse-map">
+                    <div id="Shape26" className="browse-map-btn">
+                      <img src="images/Layer8.png" alt="" onClick={browseMap} />
+                    </div>
+                    <div id="Browsemap"><img src="images/Browsemap.png" alt="" /></div>
+                  </div>
+                  <div className="roll-dice-background">
+                    <div className="roll-dice">
+                      <div id="Rolldice" onClick={rollDice}><img src="images/Rolldice.png" alt="" /></div>
+                    </div>
+                  </div>
 
-                <div id="Browsemap"><img src="images/Browsemap.png" alt="" /></div>
-                <div id="Shape26"><img src="images/Shape26.png" alt="" /></div>
-                <div id="Layer8"><img src="images/Layer8.png" alt="" onClick={browseMap} /></div>
-
-                <div id="Shape25"><img src="images/Shape25.png" alt="" /></div>
-                <div id="Rolldice" onClick={rollDice}><img src="images/Rolldice.png" alt="" /></div>
-
-                <div id="Layer9"><img src="images/dice-3.png" alt="" /></div>
+                  <div id="Layer9" className="dice"><img src="images/dice-3.png" alt="" /></div>
+                </div>
             </Box>
         </>
     )
@@ -75,18 +78,16 @@ export default Menu;
 
 const Box = styled.div`
     display: ${props => (props.display ? "block" : "none")};
-    position: fixed;
     z-index: 100;
 `;
 
 const Button = styled.button`
-    left: 1870px; 
-    top: 120px; 
-	position: fixed; 
+    right: 50px;
+    top: 26px;
+	position: fixed;
     z-index: 101;
     background: ${props => (props.display) ? "red" : "white"};
     width: ${props => (props.display) ? "1.7rem" : "3rem"};
     height: ${props => (props.display) ? "1.7rem" : "3rem"};
     border-radius: 50%;
 `;
-
