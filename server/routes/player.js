@@ -2,6 +2,7 @@ import { Router } from 'express';
 import Player from '../models/player.js';
 import ip from 'ip';
 import Activity from '../models/activity.js';
+import jwt from 'jsonwebtoken';
 
 const routerPlayer = Router(); 
 
@@ -25,6 +26,12 @@ routerPlayer.post('/api/users/player', async (req, res) => {
     }
 })
 
+const THIRTY_DAYS = 1000 * 60 * 60 * 24 * 30;
+const COOKIE_SECRET = process.env.COOKIE_SECRET || "demo secret";
+export const signToken = (data) => {
+    return jwt.sign( {data}, COOKIE_SECRET, { expiresIn: '30d' })
+}
+
 routerPlayer.get('/api/users/me', async (req, res) => {
     try {
         const email = req.headers.email;
@@ -34,11 +41,20 @@ routerPlayer.get('/api/users/me', async (req, res) => {
         
         const player = await Player.findOne({email: email});
 
+        const tokenCreated = Date.now();
+        const token = signToken({
+            _id: player._id,
+            name: player.name,
+            tokenCreated
+        });
+        
         await new Activity()
         .withProperties({'IP': ip.address()})
         .use('player enter')
         .log(`${player.name} enter the game`);
-
+        
+        // console.log(token);
+        res.cookie("token", token, { maxAge: THIRTY_DAYS });
         res.json(player);
     } catch (error) {
         console.log(error);

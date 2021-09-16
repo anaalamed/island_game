@@ -2,15 +2,16 @@ import express from 'express';
 import path from 'path';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 
 import {connect} from './game-db.js'
 import routerGame from './routes/game.js';
 import routerPlayer from './routes/player.js';
-// import Game from './models/game.js';
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json()); 
+app.use(cookieParser());
 app.use(routerGame);
 app.use(routerPlayer);
 
