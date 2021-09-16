@@ -12,7 +12,6 @@ const Registration = ({ }) => {
 
 
     const onSubmit = (data) => {
-        console.log(data);
         dispatch(addPlayer({ email: data.email, name: data.name }));
         setLogin(true);
     }

@@ -4,7 +4,6 @@ import $ from 'jquery';
 const Pirate = ({ number, setNumber, setStatus, setTimeGame }) => {
 
     function pirateMove(num) {
-        console.log("pirate move", num);
         let lastNum;
         for (let i = 1; i <= num; i++) {
             setTimeout(() => {
@@ -24,7 +23,6 @@ const Pirate = ({ number, setNumber, setStatus, setTimeGame }) => {
     }
 
     const asyncMoveStep = async (num) => {
-        console.log('async', num);
         try {
             if (num === 1 || num === 2 || num === 3 || num === 4 || num === 5 || num === 6) {
                 const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/cell', {
@@ -36,7 +34,6 @@ const Pirate = ({ number, setNumber, setStatus, setTimeGame }) => {
                     body: JSON.stringify({ cell: num })
                 });
                 const data = await response.json();
-                console.log(data);
                 setTimeout(() => setStatus(data), 2000)
             }
         } catch (error) {

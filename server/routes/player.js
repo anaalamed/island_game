@@ -53,11 +53,9 @@ routerPlayer.get('/api/users/me', async (req, res) => {
         .use('player enter')
         .log(`${player.name} enter the game`);
         
-        // console.log(token);
         res.cookie("token", token, { maxAge: THIRTY_DAYS });
         res.json(player);
     } catch (error) {
-        console.log(error);
         res.status(500).json({error: "Could not find the player"}); 
     }
 })
@@ -80,7 +78,6 @@ routerPlayer.put('/api/users/updateStatus', async (req, res) => {
 
         res.json(player);
     } catch (error) {
-        console.log(error);
         res.status(500).json({error: "Could not update"}); 
     }
 })

@@ -37,8 +37,6 @@ function Game() {
     }, 1500);
 
     if (status) {
-        console.log(status.isGameOver);
-        console.log("over");
         dispatch(updateStatus({ isGameOver: status.isGameOver, email: me.email }));
     }
 

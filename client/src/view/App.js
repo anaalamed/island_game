@@ -21,7 +21,6 @@ function useScreenOrientation() {
 
 function App() {
   const orientation = useScreenOrientation();
-  console.log('orientation? ', orientation);
 
   return (
     <div className="App">

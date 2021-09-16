@@ -28,7 +28,6 @@ const Menu = ({ setNumber, timeGame }) => {
         $("#Layer9").addClass("animation");
 
         setTimeout(() => {
-            // console.log(data.numberDice);
             setNumber(data.numberDice);
             switch (data.numberDice) {
                 case (1): $("#Layer9").html(`<img src="images/dice-${1}.png">`); break;

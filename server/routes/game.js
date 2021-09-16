@@ -74,8 +74,6 @@ routerGame.post('/api/cell', async (req, res) => {
                 const response = await Messages.findOne({num})
                 message = response.message;
                 isGameOver = response.isGameOver;
-                console.log(response);
-                console.log(response.isGameOver);
 
                 await new Activity()
                 .withProperties({'IP': ip.address()})

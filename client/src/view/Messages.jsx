@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Messages = ({ status }) => {
-    console.log(status);
     const [visible, setVisible] = useState(false);
 
     let gameStatus = status?.isGameOver ? 'Game Over...' : "You Win!"

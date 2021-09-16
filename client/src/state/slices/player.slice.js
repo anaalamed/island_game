@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const getPlayer = createAsyncThunk(
 	'players/me',
 	async (payload) => {
-    console.log(payload);
     const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/users/me', {
 		// const response = await fetch('http://localhost:7000/api/users/me', {
 			headers: {
@@ -14,7 +13,6 @@ export const getPlayer = createAsyncThunk(
 		});
     if (response.ok) {
       const me = await response.json();
-      console.log(me);
       return (me);
 		}
 	}
@@ -23,7 +21,6 @@ export const getPlayer = createAsyncThunk(
 export const addPlayer = createAsyncThunk(
 	'players/addNew',
 	async (payload) => {
-    console.log(payload);
     const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/users/player', {
 		// const response = await fetch('http://localhost:7000/api/users/player', {
       method: 'POST',
@@ -34,7 +31,6 @@ export const addPlayer = createAsyncThunk(
 		});
     if (response.ok) {
       const player = await response.json();
-      console.log(player);
 		}
 	}
 );
@@ -42,7 +38,6 @@ export const addPlayer = createAsyncThunk(
 export const updateStatus = createAsyncThunk(
 	'players/updateStatus',
 	async (payload) => {
-    console.log(payload);
     const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/users/updateStatus', {
 		// const response = await fetch('http://localhost:7000/api/users/updateStatus', {
       method: 'PUT',
@@ -54,7 +49,6 @@ export const updateStatus = createAsyncThunk(
 		});
     if (response.ok) {
       const player = await response.json();
-      console.log(player);
 		}
 	}
 );
@@ -71,7 +65,6 @@ const player_slice = createSlice({
       state.me = action.payload;
     },
     // [updateStatus.fulfilled]: (state, action) => {
-    //   console.log(action.payload);
     //   state.me.wins = action.payload.wins;
     //   state.me.losings = action.payload.losings;
     // }
