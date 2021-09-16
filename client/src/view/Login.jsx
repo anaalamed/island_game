@@ -9,13 +9,23 @@ const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [profile, setProfile] = useState(false);
-  console.log(email);
+  const [visible, setVisible] = useState(false);
 
   const onClick = (e) => {
     e.preventDefault();
-    dispatch(getPlayer(email));
-    setTimeout(() => setProfile(true), 1000); // not nice! need to change
+    const isEmail = isValidEmail(email);
+    console.log(isEmail);
+    if (isEmail) {
+      setVisible(true);
+      dispatch(getPlayer(email));
+      setTimeout(() => setProfile(true), 1000); // not nice! need to change
+    }
   }
+
+  function isValidEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
 
   return (
     <>
@@ -25,6 +35,7 @@ const Login = () => {
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         ></Input>
+        <Error display={visible}>Email is not valid</Error>
 
         <Button onClick={onClick}>View Profile</Button>
         <p>test account: test@gmail.com</p>
@@ -90,7 +101,6 @@ const Input = styled.input`
      font-size: 1rem;
      margin: 0.3rem;
      padding: 0.3rem 1.5rem;
-     /* width: 60%; */
  }
 `;
 
@@ -99,6 +109,7 @@ const Button = styled.button`
   font-size: 3rem;
   /* width: 50%; */
   margin: 1.5rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   font-family: cursive;
   color: midnightblue;
@@ -125,6 +136,10 @@ const Button = styled.button`
 
 const Error = styled.div`
   color: red;
-  display: ${({ show }) => (show ? "block" : "none")};
+  display: ${props => (props.display ? "none" : "flex")};
   font-size: 1rem;
+  @media only screen and (max-width: 812px) {
+     font-size: 0.6rem;
+     margin-bottom: 0.5rem;
+ }
 `;

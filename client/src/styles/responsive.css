@@ -1,0 +1,176 @@
+@media only screen and (max-width: 812px) {
+    body {
+        margin: 0;
+        padding: 0;
+     }
+
+    #Pirate
+    {
+         left: 100px;
+         top: 100px;
+    }
+
+     #Pirate img
+    {
+        width: 100px;
+    }
+    
+    /* islands */
+    #layer_01 img { width: 250px }
+    #layer_02 img { width: 250px }
+    #layer_03 img { width: 250px }
+    #layer_04 img { width: 250px }
+    #layer_05 img { width: 250px }
+    #layer_06 img { width: 250px }
+
+    #layer_01
+    {
+         left: 70px;
+         top: 219px;
+    }
+
+    #layer_02
+    {
+         left: 500px;
+         top: 100px;
+    }
+
+    #layer_03
+    {
+         left: 950px;
+         top: 180px;
+    }
+
+    #layer_04
+    {
+         left: 500px;
+         top: 260px;
+    }
+
+    #layer_05
+    {
+         left: 0px;
+         top: 460px;
+    }
+
+    #layer_06
+    {
+         left: 950px;
+         top: 350px;
+    }
+
+ /* ----------------------------------------------------------------- */
+    /* circles */
+    #Shape1 img { width: 60px }
+    #Shape1_0 img { width: 60px }
+    #Shape1_1 img { width: 60px }
+    #Shape1_2 img { width: 60px }
+    #Shape1_3 img { width: 60px }
+    #Shape1_4 img { width: 60px }
+
+    #Shape1
+    {
+         left: 70px;
+         top: 250px;
+    }
+
+    #Shape1_0
+    {
+         left: 520px;
+         top: 170px;
+    }
+
+    #Shape1_1
+    {
+         left: 980px;
+         top: 250px;
+    }
+
+    #Shape1_2
+    {
+         left: 530px;
+         top: 450px;
+    }
+
+    #Shape1_3
+    {
+         left: 30px;
+         top: 540px;
+    }
+
+    #Shape1_4
+    {
+         left: 960px;
+         top: 540px;
+    }
+
+ /* ----------------------------------------------------------------- */
+    /* numbers  */
+    #layer_1 img { width: 15px }
+    #layer_2 img { width: 20px }
+    #layer_3 img { width: 20px }
+    #layer_4 img { width: 20px }
+    #layer_5 img { width: 20px }
+    #layer_6 img { width: 20px }
+
+    #layer_1 {
+         left: 90px;
+         top: 260px;
+    }
+    
+    #layer_2 {
+        left: 540px;
+        top: 180px;
+    }
+
+   #layer_3 {
+    left: 1000px;
+    top: 265px;
+    }
+
+    #layer_4 {
+    left: 550px;
+    top: 465px;
+    }
+
+    #layer_5 {
+        left: 50px;
+        top: 555px;
+   }
+   
+   #layer_6 {
+       left: 980px;
+       top: 555px;
+  }
+
+/* ------------------------------------------------------------------   */
+/* menu */
+
+#Shape24
+{
+	 right: 1500px;
+     height: 680px;
+     width: 300px;
+}
+  
+  .background-image .roll-dice-background {
+    top: 300px;
+  }
+
+  .background-image .roll-dice-background  {
+    width: 250px;
+    margin-right: 20px;
+    left: 20px;
+}
+  
+  .background-image .dice {
+    margin-top: 450px; 
+  }
+  
+  .dice img {
+    margin-left: 10px;
+    width: 200px;
+  }
+  
+
+}

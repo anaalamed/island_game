@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import $ from 'jquery';
 
 import Menu from './Menu';
 import Pirate from './Pirate';
@@ -15,7 +16,6 @@ import Sound from './Sound';
 import { useDispatch, useSelector } from "react-redux";
 import { updateStatus } from '../state/slices/player.slice';
 
-
 function Game() {
     const dispatch = useDispatch();
     const { me } = useSelector(state => state.me);
@@ -23,7 +23,14 @@ function Game() {
     const [numDice, setNumDice] = useState(null);
     const [status, setStatus] = useState(null);
     const [timeGame, setTimeGame] = useState(0);
-    // console.log(timeGame);
+
+    setTimeout(() => {
+        var offset = $("#Pirate").offset();
+        $('html, body').animate({
+            scrollTop: offset.top - 200,
+            scrollLeft: offset.left - 200,
+        });
+    }, 1000);
 
     setTimeout(() => {
         setStatus(null);

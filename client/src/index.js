@@ -9,6 +9,8 @@ import './styles/stylesFromPSD.css';
 import './styles/animations.css';
 import './styles/stylesGame.css';
 import './styles/stylesStart.css';
+import './styles/responsive.css';
+
 
 
 ReactDOM.render(

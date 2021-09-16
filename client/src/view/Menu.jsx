@@ -63,6 +63,7 @@ const Menu = ({ setNumber, timeGame }) => {
                         </div>
                         <div id="Browsemap"><img src="images/Browsemap.png" alt="" /></div>
                     </div>
+
                     <div className="roll-dice-background">
                         <div className="roll-dice">
                             <div id="Rolldice" onClick={rollDice}><img src="images/Rolldice.png" alt="" /></div>

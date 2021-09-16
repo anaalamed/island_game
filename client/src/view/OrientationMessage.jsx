@@ -30,6 +30,7 @@ const Box = styled.div`
     align-items: center;
     margin: 2rem;
     padding: 1rem;
+    margin-left: 170px;
 `;
 
 const Message = styled.h1`

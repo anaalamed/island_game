@@ -171,4 +171,8 @@ const Error = styled.div`
   color: red;
   display: ${({ show }) => (show ? "block" : "none")};
   font-size: 1rem;
+
+  @media only screen and (max-width: 812px) {
+     font-size: 0.5rem;
+  }
 `;

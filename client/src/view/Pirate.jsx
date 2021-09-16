@@ -46,7 +46,6 @@ const Pirate = ({ number, setNumber, setStatus, setTimeGame }) => {
 
     if (number) {
         pirateMove(number);
-        // pirateMove(5);
         setNumber(null); // prevent infinite 
     }
 
