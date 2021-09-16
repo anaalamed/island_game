@@ -6,6 +6,9 @@ const MessagesSchema = new mongoose.Schema({
     }, 
     num: {
         type: Number
+    }, 
+    isGameOver: {
+        type: Number
     }
 });
 

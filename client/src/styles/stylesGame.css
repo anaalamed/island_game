@@ -1,6 +1,7 @@
 .disabledbutton {
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.9;
+  cursor: none;
 }
 
 .background-image {
@@ -60,9 +61,4 @@
 
 .dice img {
   margin-left: -70px;
-}
-
-.disabledbutton {
-    pointer-events: none;
-    opacity: 0.4;
 }

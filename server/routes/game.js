@@ -73,8 +73,10 @@ routerGame.post('/api/cell', async (req, res) => {
                 const num = Math.round(Math.random()*3)+1;
                 const response = await Messages.findOne({num})
                 message = response.message;
-                isGameOver = 0;
-                
+                isGameOver = response.isGameOver;
+                console.log(response);
+                console.log(response.isGameOver);
+
                 await new Activity()
                 .withProperties({'IP': ip.address()})
                 .use('cell 5')

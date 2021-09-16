@@ -50,7 +50,7 @@ export const updateStatus = createAsyncThunk(
 				'Content-Type': 'application/json',
         'email': payload.email
 			},
-      body: JSON.stringify({ isWin: payload.isWin }),
+      body: JSON.stringify({ isGameOver: payload.isGameOver }),
 		});
     if (response.ok) {
       const player = await response.json();

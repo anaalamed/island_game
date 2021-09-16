@@ -29,13 +29,14 @@ const Box = styled.div`
     flex-direction: column;
     align-items: center;
     margin: 2rem;
+    padding: 1rem;
 `;
 
 const Message = styled.h1`
     color: white;
     text-align: center;
-    font-size: 5rem;
-    padding: 1rem;
+    font-size: 2rem;
+    padding: 2rem;
 `;
 
 const Button = styled.button`

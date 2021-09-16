@@ -7,16 +7,18 @@ import { AiOutlineClose } from 'react-icons/ai';
 const Menu = ({ setNumber, timeGame }) => {
     const [display, setDisplay] = useState(1);
     const [sign, setSign] = useState(AiOutlineClose);
-    console.log(timeGame);
 
     const browseMap = () => {
         console.log("browse");
     }
 
-    const rollDice = async () => {
+    const time = (timeGame > 0) ? (timeGame + 2000) : 5000; // at the first render get 0
 
-        $("#Rolldice").addClass("disabledbutton");
-        setTimeout(() => $("#Rolldice").removeClass("disabledbutton"), timeGame);
+    const rollDice = async () => {
+        console.log(timeGame);
+
+        $(".roll-dice").addClass("disabledbutton");
+        setTimeout(() => $(".roll-dice").removeClass("disabledbutton"), time);
 
         const res = await fetch("https://anaalamed-island-game.herokuapp.com/api/dice");
         // const res = await fetch("http://localhost:7000/api/dice");
@@ -78,7 +80,7 @@ export default Menu;
 
 const Box = styled.div`
     display: ${props => (props.display ? "block" : "none")};
-    z-index: 100;
+    z-index: 101;
 `;
 
 const Button = styled.button`

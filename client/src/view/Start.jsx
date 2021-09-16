@@ -53,7 +53,6 @@ const Box = styled.div`
     @media only screen and (max-width: 812px) {
     padding: 2rem;
   }
-
 `;
 
 const Title = styled.h1`

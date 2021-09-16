@@ -30,9 +30,8 @@ function Game() {
     }, 1500);
 
     if (status?.isGameOver) {
-        let isWin = !(status.isGameOver);
         console.log("over");
-        dispatch(updateStatus({ isWin: isWin, email: me.email }));
+        dispatch(updateStatus({ isGameOver: status.isGameOver, email: me.email }));
     }
 
     return (
