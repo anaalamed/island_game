@@ -78,11 +78,6 @@ routerPlayer.put('/api/users/updateStatus', async (req, res) => {
 
         const status = isGameOver ? "lose" : "win";
 
-        await new Activity()
-        .withProperties({'IP': ip.address()})
-        .use('player status')
-        .log(`${player.name} ${status}`);
-
         res.json(player);
     } catch (error) {
         console.log(error);

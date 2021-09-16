@@ -65,8 +65,8 @@ const Form = styled.form`
   }
 
   @media only screen and (max-width: 812px) {
-    padding: 2rem 1rem;
-    width: 100%;
+    padding: 2rem 2rem;
+    /* width: 100%; */
   }
 `;
 
@@ -90,14 +90,14 @@ const Input = styled.input`
      font-size: 1rem;
      margin: 0.3rem;
      padding: 0.3rem 1.5rem;
-     width: 60%;
+     /* width: 60%; */
  }
 `;
 
 const Button = styled.button`
   z-index: 100;
   font-size: 3rem;
-  width: 50%;
+  /* width: 50%; */
   margin: 1.5rem;
   cursor: pointer;
   font-family: cursive;

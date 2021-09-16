@@ -40,6 +40,13 @@ const Box = styled.div`
     position: fixed;
     opacity: 80%;
     z-index: 200;
+
+    @media only screen and (max-width: 812px) {
+    padding: 2rem 2rem;
+    width: 10%;
+    height: 10%;
+    /* margin: 0; */
+  }
 `;
 
 const Message = styled.h1`
@@ -47,6 +54,10 @@ const Message = styled.h1`
     text-align: center;
     font-size: 5rem;
     padding: 1rem;
+
+    @media only screen and (max-width: 812px) {
+        font-size: 1rem;
+  }
 `;
 
 const Status = styled.h1`
@@ -54,6 +65,10 @@ const Status = styled.h1`
     text-align: center;
     font-size: 7rem;
     padding: 1rem;
+
+    @media only screen and (max-width: 812px) {
+        font-size: 2rem;
+  }
 `;
 
 const Button = styled.button`

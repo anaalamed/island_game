@@ -39,8 +39,8 @@ const Box = styled.div`
   opacity: 95%;
 
   @media only screen and (max-width: 812px) {
-    padding: 2rem 1rem;
-    width: 100%;
+    padding: 2rem 3rem;
+    /* width: 100%; */
   }
 `;
 
