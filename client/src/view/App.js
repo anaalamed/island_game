@@ -3,6 +3,8 @@ import Game from './Game';
 import Start from './Start';
 import { Route } from "react-router-dom";
 import { Provider } from "react-redux";
+import OrientationMessage from './OrientationMessage';
+
 
 function useScreenOrientation() {
   const [orientation, setOrientation] = useState(window.screen.orientation.type);
@@ -26,6 +28,8 @@ function App() {
 
       <Route path="/" exact component={Start} />
       <Route path="/game" exact component={Game} />
+
+      {(orientation?.includes("portrait")) ? (<OrientationMessage></OrientationMessage>) : (null) }
 
     </div>
   );
