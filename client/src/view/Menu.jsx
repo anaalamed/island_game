@@ -20,7 +20,7 @@ const Menu = ({ setNumber, timeGame }) => {
         $(".roll-dice").addClass("disabledbutton");
         setTimeout(() => $(".roll-dice").removeClass("disabledbutton"), time);
 
-        const res = await fetch("https://anaalamed-island-game.herokuapp.com/api/dice");
+        const res = await fetch("https://aaaa-ig.herokuapp.com/api/dice");
         // const res = await fetch("http://localhost:7000/api/dice");
 
         const data = await res.json();

@@ -25,7 +25,7 @@ const Pirate = ({ number, setNumber, setStatus, setTimeGame }) => {
     const asyncMoveStep = async (num) => {
         try {
             if (num === 1 || num === 2 || num === 3 || num === 4 || num === 5 || num === 6) {
-                const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/cell', {
+                const response = await fetch('https://aaaa-ig.herokuapp.com/api/cell', {
                     // const response = await fetch('http://localhost:7000/api/cell', {
                     method: 'POST',
                     headers: {

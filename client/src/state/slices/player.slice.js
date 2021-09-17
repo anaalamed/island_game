@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const getPlayer = createAsyncThunk(
 	'players/me',
 	async (payload) => {
-    const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/users/me', {
+    const response = await fetch('https://aaaa-ig.herokuapp.com/api/users/me', {
 		// const response = await fetch('http://localhost:7000/api/users/me', {
 			headers: {
 				'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export const getPlayer = createAsyncThunk(
 export const addPlayer = createAsyncThunk(
 	'players/addNew',
 	async (payload) => {
-    const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/users/player', {
+    const response = await fetch('https://aaaa-ig.herokuapp.com/api/users/player', {
 		// const response = await fetch('http://localhost:7000/api/users/player', {
       method: 'POST',
 			headers: {
@@ -38,7 +38,7 @@ export const addPlayer = createAsyncThunk(
 export const updateStatus = createAsyncThunk(
 	'players/updateStatus',
 	async (payload) => {
-    const response = await fetch('https://anaalamed-island-game.herokuapp.com/api/users/updateStatus', {
+    const response = await fetch('https://aaaa-ig.herokuapp.com/api/users/updateStatus', {
 		// const response = await fetch('http://localhost:7000/api/users/updateStatus', {
       method: 'PUT',
 			headers: {
