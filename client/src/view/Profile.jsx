@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { Redirect } from "react-router-dom";
-
+import styled from "styled-components";
 
 const Profile = ({ data }) => {
   const [redirect, setRedirect] = useState(false);
@@ -40,7 +39,6 @@ const Box = styled.div`
 
   @media only screen and (max-width: 812px) {
     padding: 2rem 3rem;
-    /* width: 100%; */
   }
 `;
 
@@ -52,10 +50,9 @@ const Name = styled.h1`
   padding: 1rem;
 
   @media only screen and (max-width: 812px) {
-   font-size: 1.8rem;
-   padding: 0.3rem;
+    font-size: 1.8rem;
+    padding: 0.3rem;
   }
-
 `;
 
 const Detail = styled.h2`
@@ -95,5 +92,5 @@ const Button = styled.button`
      font-size: 1rem;
      margin: 0;
      padding: 0.3rem 1.5rem;
- }
+  }
 `;

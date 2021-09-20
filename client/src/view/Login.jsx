@@ -1,6 +1,7 @@
-import styled from "styled-components";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
+
 import { getPlayer } from '../state/slices/player.slice';
 import Profile from './Profile';
 
@@ -47,7 +48,6 @@ const Login = () => {
 export default Login;
 
 
-
 const Title = styled.h1`
   z-index: 100;
   font-size: 6rem;
@@ -76,7 +76,6 @@ const Form = styled.form`
 
   @media only screen and (max-width: 812px) {
     padding: 2rem 2rem;
-    /* width: 100%; */
   }
 `;
 
@@ -96,11 +95,11 @@ const Input = styled.input`
     outline: none;
  }
 
- @media only screen and (max-width: 812px) {
-     font-size: 1rem;
-     margin: 0.3rem;
-     padding: 0.3rem 1.5rem;
- }
+  @media only screen and (max-width: 812px) {
+      font-size: 1rem;
+      margin: 0.3rem;
+      padding: 0.3rem 1.5rem;
+  }
 `;
 
 const Button = styled.button`
@@ -127,10 +126,10 @@ const Button = styled.button`
   }
 
   @media only screen and (max-width: 812px) {
-     font-size: 1rem;
-     margin: 0;
-     padding: 0.3rem 1.5rem;
- }
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.3rem 1.5rem;
+}
 `;
 
 const Error = styled.div`
@@ -138,7 +137,7 @@ const Error = styled.div`
   display: ${props => (props.display ? "block" : "none")};
   font-size: 1rem;
   @media only screen and (max-width: 812px) {
-     font-size: 0.6rem;
-     margin-bottom: 0.5rem;
- }
+    font-size: 0.6rem;
+    margin-bottom: 0.5rem;
+}
 `;

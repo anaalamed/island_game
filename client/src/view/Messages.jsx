@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Messages = ({ status }) => {
-    const [visible, setVisible] = useState(false);
-
     let gameStatus = status?.isGameOver ? 'Game Over...' : "You Win!"
 
     return (
@@ -32,11 +30,11 @@ const Box = styled.div`
     z-index: 200;
 
     @media only screen and (max-width: 812px) {
-    padding: 2rem 2rem;
-    width: 10%;
-    height: 10%;
-    top: 200px;
-  }
+        padding: 2rem 2rem;
+        width: 10%;
+        height: 10%;
+        top: 200px;
+    }
 `;
 
 const Message = styled.h1`
@@ -47,7 +45,7 @@ const Message = styled.h1`
 
     @media only screen and (max-width: 812px) {
         font-size: 1rem;
-  }
+    }
 `;
 
 const Status = styled.h1`
@@ -58,7 +56,7 @@ const Status = styled.h1`
 
     @media only screen and (max-width: 812px) {
         font-size: 2rem;
-  }
+    }
 `;
 
 const Button = styled.button`

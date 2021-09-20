@@ -1,9 +1,9 @@
-import styled from "styled-components";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+
 import Registration from './Registration';
 import Login from './Login';
-import { useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
 
 const Start = () => {
   const { me } = useSelector(state => state.me);
@@ -23,8 +23,6 @@ const Start = () => {
 
   return (
     <Box>
-      {/* <div id="Layer1"><img src="images/Layer1.png" /></div> */}
-
       <Title>Welcome to the Island Game</Title>
 
       <Buttons display={buttons}>
@@ -48,9 +46,8 @@ const Box = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* z-index: 200; */
   
-    @media only screen and (max-width: 812px) {
+  @media only screen and (max-width: 812px) {
     padding: 2rem;
   }
 `;
@@ -61,7 +58,7 @@ const Title = styled.h1`
   color: midnightblue;
   font-family: cursive;
 
-    @media only screen and (max-width: 812px) {
+  @media only screen and (max-width: 812px) {
     font-size: 2rem;
   }
 `;
@@ -71,7 +68,7 @@ const Buttons = styled.div`
   display: ${props => (props.display ? "block" : "none")};
   margin-top: 3.5rem;
 
-    @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1024px) {
     font-size: 1rem;
     padding: 1rem;
     margin-top: 0;
@@ -99,7 +96,7 @@ const Button = styled.button`
     transition: 2s;
   }
 
-    @media only screen and (max-width: 812px) {
+  @media only screen and (max-width: 812px) {
     font-size: 1rem;
     padding: 1rem;
   }
