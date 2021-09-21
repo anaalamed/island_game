@@ -49,6 +49,7 @@ export const updateStatus = createAsyncThunk(
 		});
     if (response.ok) {
       const player = await response.json();
+      return player;
 		}
 	}
 );
@@ -64,10 +65,11 @@ const player_slice = createSlice({
     [getPlayer.fulfilled]: (state, action) => {
       state.me = action.payload;
     },
-    // [updateStatus.fulfilled]: (state, action) => {
-    //   state.me.wins = action.payload.wins;
-    //   state.me.losings = action.payload.losings;
-    // }
+    [updateStatus.fulfilled]: (state, action) => {
+      console.log(action.payload);
+      state.me.wins = action.payload.wins;
+      state.me.losings = action.payload.losings;
+    }
   }
 });
 

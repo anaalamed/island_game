@@ -69,7 +69,7 @@ const Menu = ({ setNumber, timeGame }) => {
                         </div>
                     </div>
 
-                    <div id="Layer9" className="dice"><img src="images/dice-4.png" alt="" /></div>
+                    <div id="Layer9" className="dice"><img src="images/dice-3.png" alt="" /></div>
                 </div>
             </Box>
         </>
